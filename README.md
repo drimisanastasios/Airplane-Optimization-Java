@@ -1,109 +1,101 @@
 # Airplane Optimization Program
 
-Το πρόγραμμα **Airplane Optimization** χρησιμοποιεί αλγόριθμο βελτιστοποίησης VRP (Vehicle Routing Problem) και υπολογιστικό τύπο Haversine για να υπολογίζει τις βέλτιστες διαδρομές αεροπλάνων με βάση τα δεδομένα των προορισμών και άλλων παραμέτρων.
+The **Airplane Optimization** application uses a VRP (Vehicle Routing Problem) optimization algorithm and the Haversine formula to calculate optimal flight paths based on destination data and user-defined parameters.
 
-## Οδηγίες Εκτέλεσης
+## Execution Instructions
 
-Ακολουθήστε τα παρακάτω βήματα για να τρέξετε το πρόγραμμα.
+Follow the steps below to run the application.
 
-### 1. Εκτέλεση μέσω GitHub
+### 1. Running via GitHub
 
-Αν έχετε λογαριασμό GitHub:
-- Επισκεφτείτε το [GitHub repository](https://github.com/AnastasiosDrimis/My-Project-Repository).
-- Αντιγράψτε το URL του repository.
-- Στο `cmd`, εκτελέστε τις παρακάτω εντολές:
+If you have a GitHub account:
+- Visit the [GitHub repository](https://github.com/AnastasiosDrimis/My-Project-Repository).
+- Copy the repository URL.
+- In your terminal (`cmd`), execute the following commands:
 
-```bash
-git clone https://github.com/AnastasiosDrimis/My-Project-Repository.git
-cd My-Project-Repository
-cd airplaneoptimization
-cd src
-cd main
-cd java
-cd com
-cd codewarrios
-java CombinedApplication
- ```
+`git clone https://github.com/AnastasiosDrimis/My-Project-Repository.git`  
+`cd My-Project-Repository`  
+`cd airplaneoptimization`  
+`cd src`  
+`cd main`  
+`cd java`  
+`cd com`  
+`cd codewarrios`  
+`java CombinedApplication`  
 
+### 2. Running without GitHub
 
-### 2. Εκτέλεση χωρίς GitHub
+If you don't use GitHub:
+- Visit the [GitHub repository](https://github.com/AnastasiosDrimis/My-Project-Repository).
+- Click the **Code** button and select **Download ZIP**.
+- Extract the ZIP file on your computer.
+- Open the project folder and execute the `.jar` file (located in the `target` folder).
 
-Αν δεν έχετε GitHub:
-- Επισκεφτείτε το [GitHub repository](https://github.com/AnastasiosDrimis/My-Project-Repository).
-- Πατήστε το κουμπί **Code** και επιλέξτε την επιλογή **Download ZIP**.
-- Αποσυμπιέστε το ZIP στον υπολογιστή σας.
-- Ανοίξτε τα αρχεία του project και εκτελέστε το `.jar` αρχείο (βρίσκεται στον target φάκελο).
+### 3. Running via Command Line
 
-### 3. Εκτέλεση μέσω Command Line
+If you have the `.jar` file, you can run it directly using the following command:
 
-Αν έχετε το `.jar` αρχείο, μπορείτε να το εκτελέσετε με την παρακάτω εντολή:
+`java -jar airplaneoptimization-1.0-SNAPSHOT.jar`
 
-```bash
-java -jar airplaneoptimization-1.0-SNAPSHOT.jar
- ```
-
-## Λειτουργία του Προγράμματος
+## Application Overview
 
 ### Login
 
-Κατά την εκκίνηση της εφαρμογής, εμφανίζεται το παράθυρο **Login**. Μπορείτε να συνδεθείτε με τους εξής λογαριασμούς:
-- **Για χρήστη:**
+Upon launching the application, the **Login** window will appear. You can log in using the following default accounts:
+- **User:**
   - Username: `user`
   - Password: `user123`
   
-- **Για διαχειριστή (admin):**
+- **Administrator (admin):**
   - Username: `admin`
   - Password: `admin123`
 
-### Διαχείριση Admin
+### Admin Management
 
-Αν συνδεθείτε ως **admin**, θα εμφανιστεί το παράθυρο επιλογής για τους διαχειριστές, το οποίο επιτρέπει στον admin να:
-- Δημιουργεί νέους χρήστες/admins με διαφορετικούς κωδικούς.
-- Προσθέτει αεροδρόμια δίνοντας τα απαραίτητα στοιχεία.
+When logged in as an **admin**, the administration panel provides functionality to:
+- Create new users/admins with unique credentials.
+- Add new airports by entering the required parameters.
 
-Σε περίπτωση λάθους κατά την εισαγωγή στοιχείων, το πρόγραμμα εμφανίζει τα κατάλληλα μηνύματα σφάλματος.
-Όσο δεν κλείνετε την εφαρμογή, μπορείτε να κάνετε login με τα στοιχεία των νέων χρηστών που δημιουργείτε, αλλά και να βλέπετε στην λίστα τους προορισμούς που προσθέσατε.
+In case of invalid data entry, the program displays appropriate error messages. As long as the application remains open, you can log in with newly created accounts and view newly added destinations in the list.
 
-### Διαχείριση Χρήστη
+### User Operations
 
-Αν συνδεθείτε ως **user**, το πρόγραμμα θα ζητήσει να εισάγετε:
-1. Αριθμό αεροπλάνων που θέλετε να χρησιμοποιήσετε.
-2. Αριθμό προορισμών που επιθυμείτε να προσθέσετε.
+When logged in as a **user**, the system prompts you to enter:
+1. The number of airplanes available.
+2. The number of destinations to include.
 
-Στη συνέχεια, θα εμφανιστεί ένας πίνακας με τους προορισμούς. Μπορείτε να επιλέξετε τους προορισμούς που θέλετε να επισκεφτείτε κρατώντας πατημένο το **Control** και κάνοντας κλικ σε κάθε προορισμό. Πατώντας **Submit**, θα εμφανιστούν:
-- Τα αεροπλάνα που θα χρησιμοποιηθούν.
-- Οι διαδρομές των αεροπλάνων.
-- Η συνολική χιλιομετρική απόσταση που διανύει το κάθε αεροπλάνο.
+A table displaying available destinations will then appear. Select your desired destinations by holding down the **Control** key while clicking each item. After clicking **Submit**, the system displays:
+- The assigned airplanes.
+- The calculated flight routes.
+- The total distance (in kilometers) traveled by each aircraft.
 
-### Δομή περιεχομένων αποθετηρίου
+### Repository Structure
 
-Στο αποθετήριό μας στο github βρίσκεται ένας φάκελος airplaneoptimization. Εκεί περιέχονται όλα τα απαραίτητα αρχεία για το πρόγραμμά μας.
-Επίσης, υπάρχει το file license, με την απαραίτητη άδεια του προγράμματος.
-Υπάρχει η φωτογραφία για το uml.
-Τέλος, υπάρχει το file readme.
+- **`airplaneoptimization/`**: Contains all core project source files.
+- **`LICENSE`**: Includes the application's software license details.
+- **`umlairplaneoptimization.png`**: The UML diagram image.
+- **`README.md`**: Project documentation file.
 
-### Σφάλματα Εισαγωγής
+### Input Validation
 
-Σε περίπτωση που εισάγονται λάθος στοιχεία ή δεν είναι έγκυρες οι εισαγωγές, το πρόγραμμα εμφανίζει τα κατάλληλα μηνύματα σφάλματος.
+The program includes built-in error handling and displays meaningful warning messages if invalid input is provided.
 
-## Τεχνικά Στοιχεία
+## Technical Details
 
-Το πρόγραμμα χρησιμοποιεί:
-- **Πίνακες**, **λίστες**, **μεταβλητές**, **μέθοδοι** και **κλάσεις** για την αποθήκευση και επεξεργασία δεδομένων.
-- **Υπολογιστικό τύπο Haversine** για τον υπολογισμό της χιλιομετρικής απόστασης μεταξύ προορισμών με βάση το γεωγραφικό πλάτος και ύψος.
-- **Αλγόριθμο βελτιστοποίησης VRP** σε απλή μορφή για την εύρεση των καλύτερων διαδρομών.
+Key implementation features:
+- **Arrays**, **lists**, **variables**, **methods**, and **classes** for data storage and management.
+- **Haversine formula** to calculate precise distances between destinations using geographical coordinates (latitude and longitude).
+- A simplified **VRP (Vehicle Routing Problem)** algorithm to solve route optimization.
 
-## Διάγραμμα UML
+## UML Diagram
 
 ![UML Airplane Optimization](umlairplaneoptimization.png)
 
-## Συμβουλές
+## Prerequisites & Troubleshooting
 
-- Βεβαιωθείτε ότι έχετε το JDK εγκατεστημένο στον υπολογιστή σας για να μπορέσετε να μεταγλωττίσετε και να τρέξετε το πρόγραμμα μέσω του `javac` ή του `java`.
-- Αν η εφαρμογή δεν λειτουργεί σωστά, ελέγξτε τα δεδομένα εισόδου και βεβαιωθείτε ότι οι κωδικοί και οι παράμετροι εισαγωγής είναι σωστοί.
+- Ensure that **JDK (Java Development Kit)** is installed on your system to compile and execute Java commands.
+- If the application fails to run, verify that input parameters and credentials are correctly formatted.
 
-## Άδειες Χρήσης
+## License
 
-Το συγκεκριμένο project έχει την άδεια Apache License 2.0 - πάτα το αρχείο [LICENSE](LICENSE) για περισσότερες λεπτομέρειες.
-
-
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
